@@ -3,33 +3,23 @@ function handleFormSubmit(event) {
     const username = event.target.username.value;
     const email = event.target.email.value;
     const phone = event.target.phone.value;
-    const obj = {
-        username, email, phone
+    const object = {
+         username, email, phone
+        
     }
-    const stingObj = JSON.stringify(obj);
-    localStorage.setItem(email, stingObj);
-    displayUser(obj);
+    const stringObj = JSON.stringify(object);
+    localStorage.setItem(email, stringObj);
+    getUsersFromLocalStorage(object);
 }
-function displayUser(obj) {
-
-
-
+function getUsersFromLocalStorage(object) {
     const ul = document.querySelector('ul');
+    const li = document.createElement('li');
     
-    const newli = document.createElement('li');
-    newli.textContent = obj.username + "-" + obj.email + "-" + obj.phone;
+  
+    li.textContent = object.username + "-" + object.email + "-"  + object.phone;
+
+    ul.appendChild(li);
     
-
-    const newButton = document.createElement('button');
-
-    newButton.textContent = 'Delete';
-    newButton.addEventListener("click", () => {
-        newli.remove();
-        localStorage.removeItem(obj.email);
-    })
-    newli.appendChild(newButton);
-    ul.appendChild(newli);
-
-
+    
 }
 module.exports = handleFormSubmit;
