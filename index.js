@@ -24,11 +24,8 @@ function handleFormSubmit(event) {
         phone
     };
     const usersList = JSON.parse(localStorage.getItem("usersList")) || [];
-    userDetails.id = Date.now();
-    usersList.push(userDetails);
-    display(userDetails);
-    localStorage.setItem("usersList", JSON.stringify(usersList));
-
+    
+    
     const editId = sessionStorage.getItem("editId");
     if (editId)
     {
@@ -36,8 +33,9 @@ function handleFormSubmit(event) {
     }
     else
     {
-        addData(usersList, userDetails);
+        add(usersList, userDetails);
     }
+    localStorage.setItem("usersList", JSON.stringify(usersList));
     }
 
     // use this function to display user on screen
@@ -62,7 +60,7 @@ function display(data) {
     }
 
     // use this function to add user details into local storage
-function addData(usersList, userDetails) {
+function add(usersList, userDetails) {
     userDetails.id = Date.now();
     usersList.push(userDetails);
     display(userDetails);
