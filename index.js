@@ -91,6 +91,7 @@ function editData(data) {
     const usernameInput = document.querySelector("#username");
     const emailInput = document.querySelector("#email");
     const phoneInput = document.querySelector("#phone");
+    console.log(usernameInput,emailInput,phoneInput);
     usernameInput.value = data.username;
     emailInput.value = data.email;
     phoneInput.value = data.phone;
